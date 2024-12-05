@@ -77,7 +77,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post(
-        "/auth/login", // Gunakan path tanpa '/api'
+        "https://api.zacht.tech/auth/login", // Gunakan path tanpa '/api'
         { email, password },
         {
           headers: {
@@ -101,7 +101,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const register = async (data: any) => {
     try {
-      await axios.post("/api/auth/register", data, {
+      await axios.post("https://api.zacht.tech/auth/register", data, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -114,7 +114,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post("/api/auth/logout");
+      await axios.post("https://api.zacht.tech/auth/logout");
     } catch (error) {
       console.error("Logout gagal:", error);
     } finally {
